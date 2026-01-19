@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-REPO_URL="https://github.com/euchrogene/deseq2"
-REPO_DIR="deseq2"
+REPO_URL="https://github.com/euchrogene/PyDESeq2"
+REPO_DIR="PyDESeq2"
 TARGET_BIN="/usr/bin"
 DATA_FILE="/usr/share/euchrogene_pipelines.txt"
 VIEWER_SCRIPT="$TARGET_BIN/pipelines"

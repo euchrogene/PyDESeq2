@@ -10,34 +10,6 @@ TARGET_BIN="/usr/bin"
 DATA_FILE="/usr/share/euchrogene_pipelines.txt"
 VIEWER_SCRIPT="$TARGET_BIN/pipelines"
 
-echo "Step 0: Checking for Python 3.12..."
-if ! command -v python3.12 &> /dev/null; then
-    echo "Python 3.12 not found. Installing via Deadsnakes PPA..."
-    
-    # Force non-interactive mode for this shell session
-    export DEBIAN_FRONTEND=noninteractive
-    
-    # Pre-set the timezone to UTC to stop the 'geographic area' prompt
-    sudo ln -fs /usr/share/zoneinfo/UTC /etc/localtime
-    
-    sudo apt-get update
-    sudo apt-get install -y software-properties-common
-    
-    # Add the Deadsnakes PPA
-    sudo add-apt-repository -y ppa:deadsnakes/ppa
-    sudo apt-get update
-    
-    # Install Python 3.12 without interactive prompts
-    sudo apt-get install -y python3.12 python3.12-venv python3.12-dev tzdata
-    
-    # Reconfigure tzdata non-interactively
-    sudo dpkg-reconfigure --frontend noninteractive tzdata
-    
-    echo "Python 3.12 installed successfully."
-else
-    echo "Python 3.12 is already installed."
-fi
-
 echo "Step 1: Downloading repository..."
 # Clean up any previous failed attempts first
 [ -d "$REPO_DIR" ] && rm -rf "$REPO_DIR"
@@ -74,5 +46,7 @@ EOF"
 
 sudo chmod +x "$VIEWER_SCRIPT"
 
+echo ""
 echo "Success! Installation complete and temporary files removed."
-echo "To manage the list, you can manually edit $DATA_FILE."
+echo ""
+echo "If you want to delete the pipeline list not used anymore, open the file in /usr/share/euchrogene_pipelines.txt and revise it."

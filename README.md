@@ -15,7 +15,6 @@ sudo bash Install_PyDESeq2.sh
 3. check installation
 ```
 pipelines # This shows installed pipelines
-
 ```
 
 4. download example files (use the same format for your data)
@@ -37,7 +36,7 @@ PyDESeq2 # this will show the following help contents
 
 
 
-## help contents:
+## Help contents:
 ```
 ________________________________________________________________________________________________
 

@@ -44,7 +44,7 @@ wget https://github.com/euchrogene/PyDESeq2/raw/refs/heads/main/Example_Gene_Exp
 PyDESeq2 -exp_design_csv Example_Exp_design.csv -count_table Example_Gene_Exp_Count.csv -exp_name test
 ```
 
-6. show help content
+6. show help contents
 ```
 PyDESeq2 # this will show the following help contents
 ```

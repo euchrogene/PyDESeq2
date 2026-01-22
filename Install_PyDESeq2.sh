@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Configuration
-REPO_URL="https://github.com/euchrogene/AdapterRemoval_bowtie2_RSEM.git"
-REPO_DIR="AdapterRemoval_bowtie2_RSEM"
-EXE_FILE="RNA-seq_AdapterRemoval_RSEM"
-PIPELINE_ENTRY="$EXE_FILE => A pipeline to process RNA-seqs to get TPM, FPKM, and Count data"
+REPO_URL="https://github.com/euchrogene/PyDESeq2.git"
+REPO_DIR="PyDESeq2"
+EXE_FILE="PyDESeq2"
+PIPELINE_ENTRY="$EXE_FILE => Analyze Differentially Expressed Genes (DEGs) using PyDESeq2."
 
 TARGET_BIN="/usr/bin"
 DATA_FILE="/usr/share/euchrogene_pipelines.txt"

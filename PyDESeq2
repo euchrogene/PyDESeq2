@@ -1,0 +1,101 @@
+#!/usr/bin/env python
+
+from pathlib import Path
+import sys 
+
+path = Path("/home/Docker_system_files/")
+
+if path.is_dir():
+    print("\n\nThis is pipeline provided by EuchroGene, LLC. If you find any bugs please report it to: bioinformatics@euchrogene.com\n\n")
+else:
+    print("\n\nThis pipeline is for EuchroGene customers. If you want to use it, please ask it to: bioinformatics@euchrogene.com\n\n")
+    sys.exit()
+
+
+"""
+Created on Mon Jan 18 17:41:10 2021
+
+@author: minkj
+"""
+#________________ option parse _______________________________
+import sys 
+
+args = sys.argv[1:]
+
+option_dict={'-exp_name':'Sample','-log2fc':"1",'-padj':"0.05"}
+help="""
+________________________________________________________________________________________________
+
+Used Tool: pydeseq2 (a python package)
+
+This is a software for DESeq2 analysis. It uses the PyDESeq2 Python package.
+The results include DEGs, a Volcano plot, an MA plot, and a PCA plot of samples.
+
+The gene counter table can be generated with the following pipeline:
+https://github.com/euchrogene/AdapterRemoval_bowtie2_RSEM
+
+If you find any bugs, please email: bioinformatics@euchrogene.com
+
+________________________________________________________________________________________________
+
+You can run this software by modifying this example:
+
+PyDESeq2 -exp_design_csv exp_design_file.csv -count_table gene_count_number.csv \\
+         -exp_name stress_response -log2fc 1 -padj 0.05
+________________________________________________________________________________________________
+
+Usage;
+
+-help                       show options
+-exp_design_csv (required)  csv file name for experimental design
+-count_table    (required)  csv file name for gene expression count table
+-exp_name       (option)    name of experiment (default is 'Sample'. Will be used for name in the figures)
+-log2fc         (option)    threshold for log2fc (default is 1) 
+-padj           (option)    threshold for adjusted p-value (default is 0.05) 
+______________________________________________________________________________________________
+"""
+if args==[]:
+    print (help)
+    sys.exit()
+    
+for i in range(len(args)):
+    if args[i].startswith("-"):
+        try:
+            option_dict[args[i]]=args[i+1]
+        except:
+            if args[0]=="-help":
+                print (help)
+                sys.exit()
+                
+def run_pipeline (exp_design_csv, count_table, exp_name, log2fc, padj):
+    
+    import subprocess
+
+    # Define your command as a list of strings
+    command = [
+        "docker", "run", "--rm",
+        "--shm-size", "64g",
+        "-v", ".:/data",
+        "managene7/rna-seq_to_tpm_deseq2:v.1.0",
+        "PyDESeq2_container", 
+        "-exp_design_csv", f"{exp_design_csv}", 
+        "-count_table", f"{count_table}",
+        "-exp_name", f"{exp_name}",
+        "-log2fc", f"{log2fc}",
+        "-padj", f"{padj}",
+
+    ]
+    
+    # Run the command
+    try:
+        result = subprocess.run(command, check=True, capture_output=False, text=True)
+        print("\n*** RNA-seq has processed successfully.***")
+    except subprocess.CalledProcessError as e:
+        print(f"Error occurred: {e}")
+    
+    
+def main():
+    run_pipeline(option_dict["-exp_design_csv"], option_dict['-count_table'], option_dict["-exp_name"], float(option_dict["-log2fc"]), float(option_dict["-padj"]))
+
+if __name__ == '__main__':
+    main()    

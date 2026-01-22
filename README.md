@@ -16,7 +16,7 @@ You can refer to the format of the experiment design file in this repository.
 
 Outputs are DEGs, Volcano plot, MA plot, and PCA plot of samples.
 
-## To install:
+## To install, copy and paste the following commands in a Jupyter Terminal, and execute:
 
 1. get the installation file:
 ```

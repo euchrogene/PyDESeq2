@@ -14,16 +14,24 @@ echo "Step 0: Checking for Python 3.12..."
 if ! command -v python3.12 &> /dev/null; then
     echo "Python 3.12 not found. Installing via Deadsnakes PPA..."
     
-    # Update and install prerequisite for adding repositories
+    # Force non-interactive mode for this shell session
+    export DEBIAN_FRONTEND=noninteractive
+    
+    # Pre-set the timezone to UTC to stop the 'geographic area' prompt
+    sudo ln -fs /usr/share/zoneinfo/UTC /etc/localtime
+    
     sudo apt-get update
     sudo apt-get install -y software-properties-common
     
-    # Add the Deadsnakes PPA (Standard for multiple Python versions on Ubuntu)
+    # Add the Deadsnakes PPA
     sudo add-apt-repository -y ppa:deadsnakes/ppa
     sudo apt-get update
     
-    # Install Python 3.12 and common bioinformatics dependencies
-    sudo apt-get install -y python3.12 python3.12-venv python3.12-dev
+    # Install Python 3.12 without interactive prompts
+    sudo apt-get install -y python3.12 python3.12-venv python3.12-dev tzdata
+    
+    # Reconfigure tzdata non-interactively
+    sudo dpkg-reconfigure --frontend noninteractive tzdata
     
     echo "Python 3.12 installed successfully."
 else

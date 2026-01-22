@@ -1,5 +1,21 @@
 # This is for EuchroGene customers.
 
+PyDESeq2 is a Python-based Differentially Expressed Gene analysis tool.
+
+Two inputs are required.
+
+1. A CSV file for experiment design.
+
+2. A CSV file for gene expression counts.
+
+A CSV (Comma-separated value) file can be generated in Microsoft Excel by saving the file as CSV (Comma-delimited) (*.csv).
+
+You can use the gene expression counts generated from the RNA-seq_to_TPM_STAR or RNA-seq_to_TPM_Bowtie2 in this repository.
+
+You can refer to the format of the experiment design file in this repository.
+
+Outputs are DEGs, Volcano plot, MA plot, and PCA plot of samples.
+
 ## To install:
 
 1. get the installation file:

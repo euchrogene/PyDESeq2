@@ -18,20 +18,15 @@ Outputs are DEGs, Volcano plot, MA plot, and PCA plot of samples.
 
 ## To install, copy and paste the following commands in a Jupyter Terminal, and execute:
 
-1. get the installation file:
+1. install the software:
 ```
 wget https://github.com/euchrogene/PyDESeq2/raw/refs/heads/main/Install_PyDESeq2.sh
-
-```
-
-2. install the pipeline:
-```
 sudo bash Install_PyDESeq2.sh
 ```
 
-3. check installation
+3. display installed pipelines (or software)
 ```
-pipelines # This shows installed pipelines
+pipelines
 ```
 
 4. download example files (use the same format for your data)
@@ -47,11 +42,8 @@ PyDESeq2 -exp_design_csv Example_Exp_design.csv -count_table Example_Gene_Exp_Co
 
 6. show help contents
 ```
-PyDESeq2 # this will show the following help contents
+PyDESeq2
 ```
-
-
-
 
 ## Help contents:
 ```

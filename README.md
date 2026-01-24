@@ -22,6 +22,7 @@ Outputs are DEGs, Volcano plot, MA plot, and PCA plot of samples.
 ```
 wget https://github.com/euchrogene/PyDESeq2/raw/refs/heads/main/Install_PyDESeq2.sh
 sudo bash Install_PyDESeq2.sh
+rm Install_PyDESeq2.sh
 ```
 
 3. display installed pipelines (or software)

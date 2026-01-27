@@ -25,23 +25,23 @@ sudo bash Install_PyDESeq2.sh
 rm Install_PyDESeq2.sh
 ```
 
-3. display installed pipelines (or software)
+2. display installed software
 ```
 eg-tools
 ```
 
-4. download example files (use the same format for your data)
+3. download example files (use the same format for your data)
 ```
 wget https://github.com/euchrogene/PyDESeq2/raw/refs/heads/main/Example_Exp_design.csv  # This will download the experiment format file
 wget https://github.com/euchrogene/PyDESeq2/raw/refs/heads/main/Example_Gene_Exp_Count.csv # this will download the gene expression count file
 ```
 
-5. example run
+4. example run
 ```
 PyDESeq2 -exp_design_csv Example_Exp_design.csv -count_table Example_Gene_Exp_Count.csv -exp_name test
 ```
 
-6. show help contents
+5. show help contents
 ```
 PyDESeq2
 ```

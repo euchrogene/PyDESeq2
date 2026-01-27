@@ -27,7 +27,7 @@ rm Install_PyDESeq2.sh
 
 3. display installed pipelines (or software)
 ```
-pipelines
+eg-tools
 ```
 
 4. download example files (use the same format for your data)

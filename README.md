@@ -27,7 +27,7 @@ rm Install_PyDESeq2.sh
 
 2. display installed software
 ```
-eg-tools
+EG_tools
 ```
 
 3. download example files (use the same format for your data)

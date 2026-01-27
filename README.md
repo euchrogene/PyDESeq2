@@ -1,4 +1,4 @@
-# This is for EuchroGene customers.
+# This is for EuchroGene Members.
 
 PyDESeq2 is a Python-based Differentially Expressed Gene analysis tool.
 

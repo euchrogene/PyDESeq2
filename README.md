@@ -18,11 +18,16 @@ Outputs are DEGs, Volcano plot, MA plot, and PCA plot of samples.
 
 ## To install, copy and paste the following commands in a Jupyter Terminal, and execute:
 
+0. Install EG_tools (*** If this is already installed, skip this step ***)
+```
+wget https://github.com/euchrogene/EG_tools/raw/refs/heads/main/EG_tools
+sudo chmod 777 EG_tools
+sudo mv EG_tools /usr/bin
+```
+
 1. install the software:
 ```
-wget https://github.com/euchrogene/PyDESeq2/raw/refs/heads/main/Install_PyDESeq2.sh
-sudo bash Install_PyDESeq2.sh
-rm Install_PyDESeq2.sh
+sudo EG_tools install -r https://github.com/euchrogene/PyDESeq2.git -d PyDESeq2 -e PyDESeq2_v.1.0 -m "PyDESeq2_v.1.0 => Analyze Differentially Expressed Genes (DEGs) using PyDESeq2."
 ```
 
 2. display installed software
@@ -38,45 +43,48 @@ wget https://github.com/euchrogene/PyDESeq2/raw/refs/heads/main/Example_Gene_Exp
 
 4. example run
 ```
-PyDESeq2 -exp_design_csv Example_Exp_design.csv -count_table Example_Gene_Exp_Count.csv -exp_name test
+PyDESeq2_v.1.0 -exp_design_csv Example_Exp_design.csv -count_table Example_Gene_Exp_Count.csv -exp_name test
 ```
 
 5. show help contents
 ```
-PyDESeq2
+PyDESeq2_v.1.0
 ```
 
 ## Help contents:
 ```
 ________________________________________________________________________________________________
 
-Used Tool: pydeseq2 (a Python package)
+Used Tool: pydeseq2 (a python package) - Production Level
 
 This is a software for DESeq2 analysis. It uses the PyDESeq2 Python package.
 The results include DEGs, a Volcano plot, an MA plot, and a PCA plot of samples.
 
-The gene counter table can be generated with the following pipeline:
-https://github.com/euchrogene/AdapterRemoval_bowtie2_RSEM
-
 If you find any bugs, please email: bioinformatics@euchrogene.com
-
 ________________________________________________________________________________________________
 
-You can run this software by modifying this example:
+Usage:
 
-PyDESeq2 -exp_design_csv exp_design_file.csv -count_table gene_count_number.csv \\
-         -exp_name stress_response -log2fc 1 -padj 0.05
-________________________________________________________________________________________________
+-help                show options
+-exp_design_csv      (required) csv file name for experimental design
+-count_table         (required) csv file name for gene expression count table
+-exp_name            (option) name of experiment (default: 'Sample')
+-log2fc              (option) threshold for log2fc (default: 1.0) 
+-padj                (option) threshold for adjusted p-value (default: 0.05) 
 
-Usage;
-
--help                       show options
--exp_design_csv (required)  csv file name for experimental design
--count_table    (required)  csv file name for gene expression count table
--exp_name       (option)    name of experiment (default is 'Sample'. Will be used for name in the figures)
--log2fc         (option)    threshold for log2fc (default is 1) 
--padj           (option)    threshold for adjusted p-value (default is 0.05) 
+Example:
+    PyDESeq2 -exp_design_csv design.csv -count_table counts.csv \\
+             -exp_name stress_response -log2fc 1.5 -padj 0.01
 ______________________________________________________________________________________________
+```
+
+6. Uninstall old version
+```
+sudo EG_tools uninstall -t PyDESeq2 -i managene7/rna-seq_to_tpm_deseq2:v.1.0
+```
+6. Uninstall v.1.0
+```
+sudo EG_tools uninstall -t PyDESeq2_v.1.0 -i managene7/rna-seq_to_tpm_deseq2:v.1.1
 ```
 
 

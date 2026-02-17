@@ -27,7 +27,7 @@ sudo mv EG_tools /usr/bin
 
 1. install the software:
 ```
-sudo EG_tools install -r https://github.com/euchrogene/PyDESeq2.git -d PyDESeq2 -e PyDESeq2_v.1.0 -m "PyDESeq2_v.1.0 => Analyze Differentially Expressed Genes (DEGs) using PyDESeq2."
+sudo EG_tools install -r https://github.com/euchrogene/PyDESeq2.git -d PyDESeq2 -e PyDESeq2_v.1.0 -m "Analyze Differentially Expressed Genes (DEGs) using PyDESeq2."
 ```
 
 2. display installed software

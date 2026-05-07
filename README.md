@@ -33,7 +33,7 @@ sudo mv EG_tools /usr/bin
 
 ### 1. Install PyDESeq2
 ```
-sudo EG_tools install -r https://github.com/euchrogene/PyDESeq2.git -d PyDESeq2 -e PyDESeq2_v.4.0 -m "Full-feature, journal-grade differential gene expression analysis"
+sudo EG_tools install -r https://github.com/euchrogene/PyDESeq2.git -d PyDESeq2 -e PyDESeq2_v.4.0 -m "Full-feature differential gene expression analysis using PyDESeq2"
 ```
 
 ### 2. Display installed software

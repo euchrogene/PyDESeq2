@@ -32,7 +32,12 @@ EG_tools
 PyDESeq2_v.5.0
 ```
 
-### 4. Uninstall
+### 4. Generate experimental design templates
+```
+PyDESeq2_v.5.0 -template Template_Example_Folder
+```
+
+### 5. Uninstall
 ```
 sudo EG_tools uninstall -t PyDESeq2_v.5.0 -i managene7/pydeseq2:v.2.0
 ```
